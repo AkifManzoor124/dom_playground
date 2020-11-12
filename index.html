@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width">
-    
+
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -20,6 +20,11 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"> -->
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
     <!-- Custom styles for this template -->
     <link href="css/index.css" rel="stylesheet">
 
@@ -27,6 +32,105 @@
 
 <body>
     <h1>Hello Worlds</h1>
+    <div class="row">
+        <div class="col col-auto menu">
+            <button id="create__square" onclick="createSquare()">create square</button>
+        </div>
+    </div>
+
+    <div class="playground" style="">
+
+    </div>
+
+    <!-- <div id="box" style="background-color: red; height: 200px; width: 200px;"> -->
+
+    </div>
+
+
+    <!-- <div id="test" class="parent resizable" data-drag-bound="true">
+        <div class="topbar">handler</div>
+        <div class="content">
+            <li class="">ok</li>
+            <li>ok</li>
+            <li>ok</li>
+            <li>ok</li>
+            <li>ok</li>
+        </div>
+        
+        <div class="resizers">
+            
+            <div class='resizer bottom-right'></div>
+        </div>
+    </div> -->
+
+    <div class="resizable parent">
+        <div class="content" id="our_content">
+            <li>ok</li>
+            <li>ok</li>
+            <li>ok</li>
+        </div>
+        <div class="resizers">
+            <div class="resizer bottom-right"></div>
+        </div>
+    </div>
+
+
+    <!-- <div id="test2" class="parent resizable">
+        <div class="handle" style="">Drag here</div>
+        <div class='resizers'>
+            <div class='resizer bottom-right'></div>
+           
+        </div>
+    </div> -->
+
+    <!-- <div class='resizable' id="resizer">
+        <div class='resizers'>
+            <div class='resizer top-left'></div>
+            <div class='resizer top-right'></div>
+            <div class='resizer bottom-left'></div>
+            <div class='resizer bottom-right'></div>
+        </div>
+    </div> -->
+
+
+    <script src="./dragmove.js"></script>
+    <script src="./resizable.js"></script>
+    <script src="./dragonStartOnEnd.js"></script>
+    <script>
+
+        // dragmove(document.querySelector("#test"),
+        //     document.querySelector(".topbar"), onStart, onEnd);
+
+        // dragmove(document.querySelector("#test2"),
+        //     document.querySelector("#test2 .handle"), onStart, onEnd);
+    </script>
+
+    
+
+    <script>
+        let createSquareButton = document.querySelector('create__square');
+        let contents = document.getElementById('our_content');
+
+        //console.log(`contents heighti = ${contents}`)
+        //console.log(createSquareButton)
+        makeResizableDiv('.resizable', contents)
+        dragmove(document.querySelector('.parent'), document.querySelector('.content'), onStart, onEnd)
+        // makeResizableDiv('.ree')
+
+        // dragmove(document.querySelector("#test2"),
+        //     document.querySelector("#test2"), onStart, onEnd);
+
+
+        const createSquare = () => {
+            var square = document.createElement("div");
+            square.classList.add('initial__square');
+            square.innerHTML = "hello"
+            square.style.resize = "both";
+            document.querySelector(".playground").appendChild(square);
+
+        }
+
+    </script>
 </body>
 
 </html>
